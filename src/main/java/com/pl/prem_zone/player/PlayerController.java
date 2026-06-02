@@ -17,6 +17,7 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
+    // Returns players filtered by any combination of name, team, position, and nation
     @GetMapping
     public List<Player> getPlayers(
             @RequestParam(required = false) String team,
@@ -24,25 +25,7 @@ public class PlayerController {
             @RequestParam(required = false) String position,
             @RequestParam(required = false) String nation
             ){
-        if(team != null && position != null){
-            return playerService.getPlayerByTeamAndPosition(team, position);
-
-        }
-        else if(team != null){
-            return playerService.getFromTeam(team);
-        }
-        else if(name != null){
-            return playerService.getPlayersByName(name);
-        }
-        else if(nation != null){
-            return playerService.getPlayerByNation(nation);
-        }
-        else if(position != null){
-            return playerService.getPlayerByPos(position);
-        }
-        else{
-            return playerService.getPlayers();
-        }
+        return playerService.getFilteredPlayers(name, team, position, nation);
     }
 
     @PostMapping

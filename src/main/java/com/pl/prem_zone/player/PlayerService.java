@@ -62,6 +62,16 @@ public class PlayerService {
 
     }
 
+    // Applies all non-null filters simultaneously using case-insensitive partial matching
+    public List<Player> getFilteredPlayers(String name, String team, String position, String nation) {
+        return playerRepo.findAll().stream()
+                .filter(p -> name == null || p.getName().toLowerCase().contains(name.toLowerCase()))
+                .filter(p -> team == null || p.getTeam().toLowerCase().contains(team.toLowerCase()))
+                .filter(p -> position == null || p.getPos().toLowerCase().contains(position.toLowerCase()))
+                .filter(p -> nation == null || p.getNation().toLowerCase().contains(nation.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
     public Player addPlayer(Player player){
         playerRepo.save(player);
         return player;
