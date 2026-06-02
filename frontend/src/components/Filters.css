@@ -1,0 +1,43 @@
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-input {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  color: #f0f0f0;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  flex: 1 1 160px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filter-input:focus {
+  border-color: #3d9be9;
+}
+
+.filter-input option {
+  background: #1a1a1a;
+}
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: #888;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.reset-btn:hover {
+  border-color: #3d9be9;
+  color: #fff;
+}
