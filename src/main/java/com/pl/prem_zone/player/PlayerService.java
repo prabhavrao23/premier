@@ -25,9 +25,10 @@ public class PlayerService {
         return playerRepo.findAll();
     }
 
+    // Returns players whose team name contains the search string (case-insensitive)
     public List<Player> getFromTeam(String teamName){
         return playerRepo.findAll().stream()
-                .filter(player -> teamName.equals(player.getTeam()))
+                .filter(player -> player.getTeam().toLowerCase().contains(teamName.toLowerCase()))
                 .collect(Collectors.toList());
 
     }
@@ -52,9 +53,10 @@ public class PlayerService {
                 .collect(Collectors.toList());
     }
 
+    // Returns players matching both team (partial, case-insensitive) and position (partial, case-insensitive)
     public List<Player> getPlayerByTeamAndPosition(String team, String position){
         return playerRepo.findAll().stream()
-                .filter(player-> team.equals(player.getTeam()) && position.equals(player.getPos()))
+                .filter(player-> player.getTeam().toLowerCase().contains(team.toLowerCase()) && player.getPos().toLowerCase().contains(position.toLowerCase()))
                 .collect(Collectors.toList());
 
 
