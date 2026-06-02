@@ -2,6 +2,8 @@
 
 Full-stack web app for browsing Premier League player statistics.
 
+Inspired by Erik Kupsa
+
 **Live site:** https://premier-bdftvauj7-prabhav-rao-s-projects.vercel.app
 
 ## Stack
